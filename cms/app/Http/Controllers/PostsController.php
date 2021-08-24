@@ -258,7 +258,7 @@ class PostsController extends Controller
         $reviews =find($request->id);   //ここが多分間違っている
         $reviews->review_text = $request->review_text;
         $reviews->user_id = Auth::user()->id;
-        $reviews->posts_id = Auth::user()->id;  //posts_idを$posts_tableから取得したいがわからない
+        $reviews->posts_id =  $request->post_id;  //posts_idを$posts_tableから取得したいがわからない
         $reviews->nameor = $request->nameor;
         $reviews->save(); 
         return redirect('/');

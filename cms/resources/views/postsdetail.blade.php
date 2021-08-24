@@ -104,7 +104,7 @@
 
                                 <!--更新ボタン-->
                                 <td>
-                                    <form action="{{ url('reviewsedit/'.$review ->id) }}" method="POST">
+                                    <form action="{{ url('reviewsedit'.$review ->id) }}" method="GET">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             更新

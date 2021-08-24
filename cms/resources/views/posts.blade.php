@@ -1,13 +1,19 @@
 <!-- resources/views/books.blade.php -->
 @extends('layouts.app')
 @section('content')
+@stack('css')
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
     {{ Auth::user()->id  }}
 
-        <div class="card-title">
+@push('css')
+    <link href="{{ asset('css/test.css') }}" rel="stylesheet">
+        <div class="card" >
             投稿内容
         </div>
+
+@endpush
+
         
         
         <!-- バリデーションエラーの表示に使用-->

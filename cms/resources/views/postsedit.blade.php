@@ -36,6 +36,8 @@
         </div>
         <!--/ published -->
         
+         <input type="hidden" name="post_id" class="form-control" value="{{$posts->id}}">
+            
         <!-- Saveボタン/Backボタン -->
         <div class="well well-sm">
             <button type="submit" class="btn btn-primary">Save</button>
