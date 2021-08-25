@@ -1,21 +1,15 @@
 <!-- resources/views/books.blade.php -->
 @extends('layouts.app')
 @section('content')
-@stack('css')
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
     {{ Auth::user()->id  }}
 
-@push('css')
-    <link href="{{ asset('css/test.css') }}" rel="stylesheet">
+
         <div class="card" >
-            投稿内容
+            質問投稿
         </div>
 
-@endpush
-
-        
-        
         <!-- バリデーションエラーの表示に使用-->
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
@@ -28,7 +22,7 @@
             <!-- 本のタイトル -->
             <div class="form-group">
                 <div class="col-sm-6">
-                    投稿タイトル
+                    質問
                     <input type="text" name="title" class="form-control">
                 </div>
                 <div class="col-sm-6">
@@ -36,7 +30,7 @@
                     <input type="text" name="contents" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    関連スキル
+                    関連スキル（タグ）
                     <input type="text" name="skill" class="form-control">
                 </div>
                 <div class="col-sm-6">
@@ -110,7 +104,6 @@
                                     </form>
                                 </td>
 
-                                
                                 <!--更新ボタン-->
                                 <td>
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
@@ -136,8 +129,7 @@
                                     </button>
                                  </form
                                 </td>
-                                
-                                
+                   
                             </tr>
                         @endforeach
                     </tbody>
@@ -152,40 +144,40 @@
         
     </div>
     <!-- Book: 既に登録されてる本のリスト -->
-    @if( Auth::check() )
-        @if (count($favo_posts) > 0)
-            <div class="card-body">
-                <div class="card-body">
-                    <table class="table table-striped task-table">
+    <!--@if( Auth::check() )-->
+    <!--    @if (count($favo_posts) > 0)-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="card-body">-->
+    <!--                <table class="table table-striped task-table">-->
                         <!-- テーブルヘッダ -->
-                        <thead>
-                            <th>お気に入り一覧</th>
-                            <th>&nbsp;</th>
-                        </thead>
+    <!--                    <thead>-->
+    <!--                        <th>お気に入り一覧</th>-->
+    <!--                        <th>&nbsp;</th>-->
+    <!--                    </thead>-->
                         <!-- テーブル本体 -->
-                        <tbody>
-                            @foreach ($favo_posts as $favo_post)
-                                <tr>
+    <!--                    <tbody>-->
+    <!--                        @foreach ($favo_posts as $favo_post)-->
+    <!--                            <tr>-->
                                     <!-- 投稿タイトル -->
-                                    <td class="table-text">
-                                        <div>{{ $favo_post->title }}</div>
-                                    </td>
+    <!--                                <td class="table-text">-->
+    <!--                                    <div>{{ $favo_post->title }}</div>-->
+    <!--                                </td>-->
                                      <!-- 投稿詳細 -->
-                                    <td class="table-text">
-                                        <div>{{ $favo_post->contents }}</div>
-                                    </td>
+    <!--                                <td class="table-text">-->
+    <!--                                    <div>{{ $favo_post->contents }}</div>-->
+    <!--                                </td>-->
                                     <!-- 投稿者名の表示 -->
-                                    <td class="table-text">
-                                        <div>{{ $favo_post->user->name }}</div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>		
-        @endif
+    <!--                                <td class="table-text">-->
+    <!--                                    <div>{{ $favo_post->user->name }}</div>-->
+    <!--                                </td>-->
+    <!--                            </tr>-->
+    <!--                        @endforeach-->
+    <!--                    </tbody>-->
+    <!--                </table>-->
+    <!--            </div>-->
+    <!--        </div>		-->
+    <!--    @endif-->
         	
-    @endif
+    <!--@endif-->
     
 @endsection

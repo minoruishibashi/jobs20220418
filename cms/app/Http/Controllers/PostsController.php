@@ -128,6 +128,7 @@ class PostsController extends Controller
         // $posts = Post::find($request->id);
         $posts = Post::where("user_id",Auth::user()->id)->find($request->id);  //posts tableのuser_id=Authのid これをfindしてrequestでidに入れる
         $posts->title = $request->title;
+        $posts->user_id = Auth::id();
         $posts->contents = $request->contents;
         $posts->skill = $request->skill;
         $posts->nameor = $request->nameor;
@@ -200,7 +201,7 @@ class PostsController extends Controller
     $reviews = new Review;
     $reviews->review_text = $request->review_text;
     $reviews->user_id = Auth::user()->id;
-    $reviews->posts_id = $request->post_id;  //posts_idを$posts_tableから取得したいがわからない
+    $reviews->posts_id = $request->post_id;  
     $reviews->nameor = $request->nameor;
     $reviews->save(); 
     
@@ -236,13 +237,14 @@ class PostsController extends Controller
     {
     return view('reviewsedit',
     ['review' => $reviews]);
+    
     }
     
     //Update:　更新処理 （コメントの更新→うまくできていない）
     public function reviewsupdate(Request $request){
         
       //バリデーション
-            $validator = Validator::make($request->all(), [
+         $validator = Validator::make($request->all(), [
             'review_text' => 'required|max:255',
             'nameor' => 'required|max:6'
         ]);
@@ -255,13 +257,12 @@ class PostsController extends Controller
         
         //テータ更新
         // $posts = Post::find($request->id);
-        $reviews =find($request->id);   //ここが多分間違っている
+        $reviews = Review::where("user_id",Auth::user()->id)->find($request->id);  //posts tableのuser_id=Authのid これをfindしてrequestでidに入れる
         $reviews->review_text = $request->review_text;
-        $reviews->user_id = Auth::user()->id;
-        $reviews->posts_id =  $request->post_id;  //posts_idを$posts_tableから取得したいがわからない
+        $reviews->user_id =  Auth::id();
         $reviews->nameor = $request->nameor;
         $reviews->save(); 
-        return redirect('/');
+        return back();
     }
     
     //↑The review text field is required.The nameor field is required.とエラーが出てしまう
@@ -270,8 +271,7 @@ class PostsController extends Controller
     //コメント削除  
     public function reviewdestroy (Review $review){
             $review->delete();       //追加
-            return redirect('/');  //追加
-
+             return back();
         
     }
 

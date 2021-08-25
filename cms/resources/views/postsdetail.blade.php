@@ -8,13 +8,13 @@
         <!-- name -->
         <div class="form-group">
             <label for="item_name">投稿者</label>
-            <input type="text" name="name" class="form-control" value="{{$posts->user_id}}">
-        </div>
+            <input type="text" name="name" class="form-control" value="{{$posts->user->name}}">
+
          <!--/ id値を送信 -->
     
         <!-- title -->
         <div class="form-group">
-           <label for="item_name">投稿タイトル</label>
+           <label for="item_name">質問</label>
            <input type="text" id="item_name" name="title" class="form-control" value="{{$posts->title}}">
         </div>
         <!--/ title -->
@@ -28,7 +28,7 @@
 
         <!-- skill_ -->
         <div class="form-group">
-           <label for="item_amount">スキル</label>
+           <label for="item_amount">関連スキル（タグ）</label>
         <input type="text" id="item_amount" name="skill" class="form-control" value="{{$posts->skill}}">
         </div>
         <!--/ skill -->
@@ -91,6 +91,10 @@
                     <tbody>
                         @foreach ($reviews as $review)
                             <tr>
+                                <!-- 投稿者名の表示 -->
+                                <td class="table-text">
+                                   <div>{{ $review->user->name }}</div>
+                                </td>
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
                                     <div>{{ $review->review_text }}</div>
@@ -104,7 +108,7 @@
 
                                 <!--更新ボタン-->
                                 <td>
-                                    <form action="{{ url('reviewsedit'.$review ->id) }}" method="GET">
+                                    <form action="{{ url('reviewsedit/'.$review->id) }}" method="POST">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             更新

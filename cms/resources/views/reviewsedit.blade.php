@@ -9,7 +9,12 @@
     <form action="{{ url('reviews/update') }}" method="POST">
 
 
-
+        <!-- title -->
+        <div class="form-group">
+           <label for="item_name">投稿者</label>
+           <input type="text" id="item_name" name="title" class="form-control" value="{{$review->user->name}}">
+        </div>
+        <!--/ title -->
         <!-- title -->
         <div class="form-group">
            <label for="item_name">コメント</label>
@@ -27,7 +32,7 @@
         <!-- Saveボタン/Backボタン -->
         <div class="well well-sm">
             <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-link pull-right" href="{{ url('/postsdetail') }}">
+            <a class="btn btn-link pull-right" href="{{ url('/') }}">
                 Back
             </a>
         </div>

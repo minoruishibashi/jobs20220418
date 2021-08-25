@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 Route::get('/', 'PostsController@index');
 
 
+/**
+* 新「本」を追加 ・投稿を追加
+*/
+Route::post('/posts', 'PostsController@store');
+
+
 // 編集更新画面
 Route::post(' /postsedit/{posts} ', 'PostsController@edit');
 
@@ -21,10 +27,6 @@ Route::post(' /postsedit/{posts} ', 'PostsController@edit');
 Route::post('/posts/update', 'PostsController@update');
 
 
-/**
-* 新「本」を追加 ・投稿を追加
-*/
-Route::post('/posts', 'PostsController@store');
 
 
 /**
@@ -57,7 +59,7 @@ Route::get(' /postsdetail/{posts} ', 'PostsController@detail');
 Route::post('/details', 'PostsController@storecomment');
 
 // コメント編集更新画面
-Route::post('/reviewsedit/{review} ', 'PostsController@reviewsedit');
+Route::post('/reviewsedit/{reviews} ', 'PostsController@reviewsedit');
 
 
 //更新処理
