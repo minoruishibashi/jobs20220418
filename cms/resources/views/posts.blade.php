@@ -37,6 +37,24 @@
                     匿名にしますか？
                     <input type="text" name="nameor" class="form-control">
                 </div>
+                
+                <div class="col-sm-6">
+                   <label for="radio01" class="col-sm-6">投稿方法</label>
+                   <div class="col--6">
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1" checked="checked">
+                         <label class="form-check-label" for="inlineRadio01">本名</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" >
+                         <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" >
+                         <label class="form-check-label" for="inlineRadio03">匿名</label>
+                      </div>
+                   </div>
+                </div>
 
             </div>
 
@@ -51,7 +69,11 @@
         </form>
     @endif
         
-        
+    
+    
+    <div class="card" >
+        質問一覧
+    </div>   
            <!-- 現在の本 -->
     @if (count($posts) > 0)
         <div class="card-body">
@@ -59,7 +81,11 @@
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
-                        <th>質問一覧</th>
+                        <th>投稿者</th>
+                        <th>質問</th>
+                        <th>内容</th>
+                        <th>関連スキル（タグ）</th>
+                        <th>匿名</th>
                         <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
@@ -105,8 +131,9 @@
                                         </button>
                                     </form>
                                 </td>
-                
-                                @if(auth()->user()->id == $post->user_id)           // ログインユーザーID ＝＝ $post tableのuser_idが一致している場合   
+
+                                @if(auth()->user()->id == $post->user_id)  
+                                <!--//ログインユーザーID ＝＝ $post tableのuser_idが一致している場合  -->
                                 <!--更新ボタン-->
                                 <td>
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">

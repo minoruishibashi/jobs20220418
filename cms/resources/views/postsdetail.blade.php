@@ -59,10 +59,25 @@
                     匿名にしますか？
                 <input type="text" name="nameor" class="form-control">
                 </div>
+                   <div class="col-sm-6">
+                   <label for="radio01" class="col-sm-6">投稿方法</label>
+                   <div class="col-sm-6">
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1" checked="checked">
+                         <label class="form-check-label" for="inlineRadio01">本名</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" >
+                         <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" >
+                         <label class="form-check-label" for="inlineRadio03">匿名</label>
+                      </div>
+                   </div>
+                   </div>
                 
                 <input type="hidden" name="post_id" class="form-control" value="{{$posts->id}}">
-            
-                
             </div>
 
             <!-- コメント登録ボタン -->
@@ -77,14 +92,21 @@
     </div>
     
     
-           <!-- 現在の本 -->
+    
+    <div class="card" >
+        質問投稿
+    </div>
+
+     <!-- 現在の本 -->
     @if (count($reviews) > 0)
         <div class="card-body">
             <div class="card-body">
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
-                        <th>コメント一覧</th>  //質問に紐づいて表示されない
+                        <th>投稿者</th>  
+                        <th>コメント</th>  
+                        <th>匿名</th>  
                         <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
