@@ -18,14 +18,14 @@
         <!-- title -->
         <div class="form-group">
            <label for="item_name">コメント</label>
-           <input type="text" id="item_name" name="title" class="form-control" value="{{$review->review_text}}">
+           <input type="text" id="" name="review_text" class="form-control" value="{{$review->review_text}}">
         </div>
         <!--/ title -->
         
         <!-- contents -->
         <div class="form-group">
            <label for="item_number">匿名にしますか？</label>
-        <input type="text" id="item_number" name="contents" class="form-control" value="{{$review->nameor}}">
+        <input type="text" id="" name="nameor" class="form-control" value="{{$review->nameor}}">
         </div>
         <!--/ contents -->
 
@@ -38,7 +38,10 @@
         </div>
         <!--/ Saveボタン/Backボタン -->
          
+         {{$review->posts_id}};
+         
          <input type="hidden" name="id" value="{{$review->id}}">
+         <input type="hidden" name="posts_id" value="{{$review->posts_id}}">
 
          <!-- CSRF -->
          {{ csrf_field() }}

@@ -59,7 +59,7 @@ Route::get(' /postsdetail/{posts} ', 'PostsController@detail');
 Route::post('/details', 'PostsController@storecomment');
 
 // コメント編集更新画面
-Route::post('/reviewsedit/{reviews} ', 'PostsController@reviewsedit');
+Route::post('/reviewsedit/{reviews}/', 'PostsController@reviewsedit');
 
 
 //更新処理

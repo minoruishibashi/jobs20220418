@@ -166,7 +166,7 @@ class PostsController extends Controller
     public function detail(Post $posts){
         $userid = Auth::user()->id;
         // $posts = Post::where("user_id",Auth::user()->id)->find($post_id);   
-        $reviews = Review::orderBy('created_at', 'asc')->get();
+        $reviews = Review::where("posts_id",$posts->id)->orderBy('created_at', 'asc')->get();  //$review tableに対して、 Review tableのposts_idが$posts\id(=引数)と一致している  －＞  作成順に 取得する。
         return view('postsdetail', 
         [
             'posts' => $posts,
@@ -236,13 +236,13 @@ class PostsController extends Controller
     public function reviewsedit(Review $reviews)
     {
     return view('reviewsedit',
-    ['review' => $reviews]);
-    
+    ['review' => $reviews]
+    );
     }
     
     //Update:　更新処理 （コメントの更新→うまくできていない）
     public function reviewsupdate(Request $request){
-        
+
       //バリデーション
          $validator = Validator::make($request->all(), [
             'review_text' => 'required|max:255',
@@ -257,12 +257,12 @@ class PostsController extends Controller
         
         //テータ更新
         // $posts = Post::find($request->id);
-        $reviews = Review::where("user_id",Auth::user()->id)->find($request->id);  //posts tableのuser_id=Authのid これをfindしてrequestでidに入れる
+        $reviews = Review::where("user_id",Auth::user()->id)->find($request->id);  //Reviewのtableから検索→whereで条件指定 user_id→”, ”= ＝→Auth user id→ find(>whereと同じ）posts tableのuser_id=Authのid これをfindしてrequestでidに入れる
         $reviews->review_text = $request->review_text;
         $reviews->user_id =  Auth::id();
         $reviews->nameor = $request->nameor;
         $reviews->save(); 
-        return back();
+        return redirect('/postsdetail/'.$request->posts_id);
     }
     
     //↑The review text field is required.The nameor field is required.とエラーが出てしまう

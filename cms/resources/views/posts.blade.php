@@ -83,14 +83,16 @@
                                 <td class="table-text">
                                     <div>{{ $post->nameor }}</div>
                                 </td>
-                                <td class="table-text">
-                                    <form action="{{ url('post/'.$post->id) }}" method="POST">
-                                    	{{ csrf_field() }}
-                                    	<button type="submit" class="btn btn-danger">
-                                    	お気に入り
-                                    	</button>
-                                    </form>
-                                </td>
+                                
+                                <!--<td class="table-text">-->
+                                <!--    <form action="{{ url('post/'.$post->id) }}" method="POST">-->
+                                <!--    	{{ csrf_field() }}-->
+                                <!--    	<button type="submit" class="btn btn-danger">-->
+                                <!--    	お気に入り-->
+                                <!--    	</button>-->
+                                <!--    </form>-->
+                                <!--</td>-->
+
 
                                 
                                 <!--質問詳細遷移ボタン -->
@@ -103,7 +105,8 @@
                                         </button>
                                     </form>
                                 </td>
-
+                
+                                @if(auth()->user()->id == $post->user_id)           // ログインユーザーID ＝＝ $post tableのuser_idが一致している場合   
                                 <!--更新ボタン-->
                                 <td>
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
@@ -113,7 +116,7 @@
                                         </button>
                                     </form>
                                 </td>
-                                
+                
                                 
                                 
                                 <!-- 本: 削除ボタン -->
@@ -127,9 +130,9 @@
                                     <button type="submit" class="btn btn-danger">
                                         削除
                                     </button>
-                                 </form
+                                 </form>
                                 </td>
-                   
+                                @endif   
                             </tr>
                         @endforeach
                     </tbody>
