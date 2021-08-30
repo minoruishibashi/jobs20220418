@@ -7,7 +7,7 @@
 
 
         <div class="card" >
-            質問投稿 更新版  更に更新
+            質問投稿
         </div>
 
         <!-- バリデーションエラーの表示に使用-->
@@ -34,23 +34,18 @@
                     <input type="text" name="skill" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    匿名にしますか？
-                    <input type="text" name="nameor" class="form-control">
-                </div>
-                
-                <div class="col-sm-6">
                    <label for="radio01" class="col-sm-6">投稿方法</label>
                    <div class="col--6">
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1" checked="checked">
+                         <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
                          <label class="form-check-label" for="inlineRadio01">本名</label>
                       </div>
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" >
+                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
                          <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
                       </div>
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" >
+                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
                          <label class="form-check-label" for="inlineRadio03">匿名</label>
                       </div>
                    </div>
@@ -85,7 +80,6 @@
                         <th>質問</th>
                         <th>内容</th>
                         <th>関連スキル（タグ）</th>
-                        <th>匿名</th>
                         <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
@@ -94,8 +88,15 @@
                             <tr>
                                  <!-- 投稿者名の表示 -->
                                 <td class="table-text">
+                                @if( $post->nameor==1)
                                    <div>{{ $post->user->name }}</div>
+                                @elseif( $post->nameor==2)
+                                   <div>{{ $post->user->nickname }}</div>
+                                @elseif( $post->nameor==3)
+                                   <div>匿名</div>
+                                @endif
                                 </td>
+                                
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
                                     <div>{{ $post->title }}</div>
@@ -105,9 +106,6 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $post->skill }}</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>{{ $post->nameor }}</div>
                                 </td>
                                 
                                 <!--<td class="table-text">-->

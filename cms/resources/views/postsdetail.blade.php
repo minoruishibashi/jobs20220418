@@ -106,7 +106,6 @@
                     <thead>
                         <th>投稿者</th>  
                         <th>コメント</th>  
-                        <th>匿名</th>  
                         <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
@@ -114,9 +113,13 @@
                         @foreach ($reviews as $review)
                             <tr>
                                 <!-- 投稿者名の表示 -->
-                                <td class="table-text">
+                                @if( $review->nameor==1)
                                    <div>{{ $review->user->name }}</div>
-                                </td>
+                                @elseif( $review->nameor==2)
+                                   <div>{{ $review->user->nickname }}</div>
+                                @elseif( $review->nameor==3)
+                                   <div>匿名</div>
+                                @endif   
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
                                     <div>{{ $review->review_text }}</div>

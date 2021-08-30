@@ -23,10 +23,22 @@
         <!--/ title -->
         
         <!-- contents -->
-        <div class="form-group">
-           <label for="item_number">匿名にしますか？</label>
-        <input type="text" id="" name="nameor" class="form-control" value="{{$review->nameor}}">
-        </div>
+       <div class="col-sm-6">
+       <label for="radio01" class="col-sm-6">投稿方法</label>
+       <div class="col-sm-6">
+          <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
+             <label class="form-check-label" for="inlineRadio01">本名</label>
+          </div>
+          <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
+             <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+          </div>
+          <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
+             <label class="form-check-label" for="inlineRadio03">匿名</label>
+          </div>
+       </div>
         <!--/ contents -->
 
         <!-- Saveボタン/Backボタン -->
