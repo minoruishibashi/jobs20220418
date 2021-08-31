@@ -8,7 +8,7 @@
         <!-- name -->
         <div class="form-group">
             <label for="item_name">投稿者</label>
-            <input type="text" name="name" class="form-control" value="{{$posts->user->name}}">
+            <input type="text" name="nameor" class="form-control" value="{{$posts->user->nameor}}">
 
          <!--/ id値を送信 -->
     
@@ -55,23 +55,20 @@
                     コメント
                     <input type="text" name="review_text" class="form-control">
                 </div>
-                <div class="col-sm-6">
-                    匿名にしますか？
-                <input type="text" name="nameor" class="form-control">
-                </div>
+
                    <div class="col-sm-6">
                    <label for="radio01" class="col-sm-6">投稿方法</label>
                    <div class="col-sm-6">
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1" checked="checked">
+                         <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
                          <label class="form-check-label" for="inlineRadio01">本名</label>
                       </div>
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" >
+                         <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
                          <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
                       </div>
                       <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" >
+                         <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
                          <label class="form-check-label" for="inlineRadio03">匿名</label>
                       </div>
                    </div>
@@ -113,23 +110,20 @@
                         @foreach ($reviews as $review)
                             <tr>
                                 <!-- 投稿者名の表示 -->
+                                <td class="table-text">
                                 @if( $review->nameor==1)
                                    <div>{{ $review->user->name }}</div>
                                 @elseif( $review->nameor==2)
                                    <div>{{ $review->user->nickname }}</div>
                                 @elseif( $review->nameor==3)
                                    <div>匿名</div>
-                                @endif   
+                                @endif                       
+                                </td>
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
                                     <div>{{ $review->review_text }}</div>
                                 </td>
                                 
-                                <!-- 匿名ほか -->
-                                <td class="table-text">
-                                    <div>{{ $review->nameor}}</div>
-                                </td>
-
 
                                 <!--更新ボタン-->
                                 <td>
