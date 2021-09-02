@@ -7,9 +7,14 @@
 
         <!-- name -->
         <div class="form-group">
-            <label for="item_name">投稿者テスト</label>
-            <input type="text" name="nameor" class="form-control" value="{{$posts->user->nameor}}">
-
+            <label for="item_name">投稿者</label>
+                @if( $posts->nameor==1)
+                <input type="text" name="nameor" class="form-control" value="{{ $posts->user->name }}">
+                @elseif( $posts->nameor==2)
+                <input type="text" name="nameor" class="form-control" value="{{ $posts->user->nickname}}">
+                @elseif( $posts->nameor==3)
+                <input type="text" name="nameor" class="form-control" value="匿名">
+                @endif
          <!--/ id値を送信 -->
     
         <!-- title -->
