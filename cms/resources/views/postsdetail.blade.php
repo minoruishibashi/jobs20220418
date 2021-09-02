@@ -7,7 +7,7 @@
 
         <!-- name -->
         <div class="form-group">
-            <label for="item_name">投稿者</label>
+            <label for="item_name">投稿者テスト</label>
             <input type="text" name="nameor" class="form-control" value="{{$posts->user->nameor}}">
 
          <!--/ id値を送信 -->
