@@ -82,6 +82,6 @@ class __TwigTemplate_a98b8457a7a973e636ba77e99924eaf2934233fee6f7a4a693294c3814b
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display/results/show_all_checkbox.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/display/results/show_all_checkbox.twig");
+        return new Twig_Source("", "display/results/show_all_checkbox.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/display/results/show_all_checkbox.twig");
     }
 }

@@ -40,6 +40,6 @@ class __TwigTemplate_17fbfca829a4fd9861b97a63e456b336f7351321f6d82be5b11c197ba09
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "login/footer.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/login/footer.twig");
+        return new Twig_Source("", "login/footer.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/login/footer.twig");
     }
 }

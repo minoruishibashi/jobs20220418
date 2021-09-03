@@ -5,7 +5,20 @@
     <div class="card-body">
     {{ Auth::user()->id  }}
 
-
+        <form action="{{ url('/img') }}" method="GET" class="form-horizontal">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-primary">
+                        プロフィール画像アップロード
+                    </button>
+                </div>
+            </div>
+        </form>
+        
+        <br>
+        <br>
+        
         <div class="card" >
             質問投稿
         </div>
@@ -76,6 +89,7 @@
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
+                        <th>投稿者写真</th>
                         <th>投稿者</th>
                         <th>質問</th>
                         <th>内容</th>
@@ -86,6 +100,16 @@
                     <tbody>
                         @foreach ($posts as $post)
                             <tr>
+                                <!-- 投稿者写真の表示 -->
+                                <td class="table-text">
+                                @if( $post->nameor==1)
+                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="auto"  >
+                                @elseif( $post->nameor==2)
+                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="auto"  >
+                                @elseif( $post->nameor==3)
+                                                            
+                                @endif
+                                </td>
                                  <!-- 投稿者名の表示 -->
                                 <td class="table-text">
                                 @if( $post->nameor==1)

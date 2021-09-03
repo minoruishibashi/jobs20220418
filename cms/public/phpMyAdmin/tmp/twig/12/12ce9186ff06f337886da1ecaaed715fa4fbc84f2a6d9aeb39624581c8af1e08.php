@@ -73,6 +73,6 @@ class __TwigTemplate_a22b47854f7c355cea6e808c549faa685e4f3d94c3e4b0683786d1a8457
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "navigation/logo.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/navigation/logo.twig");
+        return new Twig_Source("", "navigation/logo.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/navigation/logo.twig");
     }
 }

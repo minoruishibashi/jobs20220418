@@ -5,16 +5,20 @@
     <div class="col-md-12">
     @include('common.errors')
 
-        <!-- name -->
+
+        <!-- name と写真-->
         <div class="form-group">
             <label for="item_name">投稿者</label>
                 @if( $posts->nameor==1)
                 <input type="text" name="nameor" class="form-control" value="{{ $posts->user->name }}">
+                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="auto"  >
                 @elseif( $posts->nameor==2)
                 <input type="text" name="nameor" class="form-control" value="{{ $posts->user->nickname}}">
+                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="auto"  >
                 @elseif( $posts->nameor==3)
                 <input type="text" name="nameor" class="form-control" value="匿名">
                 @endif
+        </div>
          <!--/ id値を送信 -->
     
         <!-- title -->
@@ -93,19 +97,17 @@
         </form>
     </div>
     
-    
-    
-    <div class="card" >
-        質問投稿
-    </div>
-
      <!-- 現在の本 -->
     @if (count($reviews) > 0)
         <div class="card-body">
             <div class="card-body">
+                <div class="" >
+                質問投稿
+                </div>
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
+                        <th>投稿者写真</th>
                         <th>投稿者</th>  
                         <th>コメント</th>  
                         <th>&nbsp;</th>
@@ -114,6 +116,17 @@
                     <tbody>
                         @foreach ($reviews as $review)
                             <tr>
+                                <!-- 投稿者写真の表示 -->
+                                <td class="table-text">
+                                @if( $review->nameor==1)
+                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="auto"  >
+                                @elseif( $review->nameor==2)
+                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="auto"  >
+                                @elseif( $review->nameor==3)
+                                                            
+                                @endif
+                                </td>
+                                
                                 <!-- 投稿者名の表示 -->
                                 <td class="table-text">
                                 @if( $review->nameor==1)

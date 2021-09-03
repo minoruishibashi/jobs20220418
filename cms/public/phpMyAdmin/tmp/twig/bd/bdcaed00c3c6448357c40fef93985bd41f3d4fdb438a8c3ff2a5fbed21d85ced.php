@@ -68,6 +68,6 @@ class __TwigTemplate_57067fab3066688fb47e38d4b37d434c6f454363769cb67da49e27ac557
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display/results/multi_row_operations_form.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/display/results/multi_row_operations_form.twig");
+        return new Twig_Source("", "display/results/multi_row_operations_form.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/display/results/multi_row_operations_form.twig");
     }
 }

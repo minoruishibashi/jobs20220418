@@ -85,6 +85,6 @@ class __TwigTemplate_38245d37065c201568bbeb8184f37754e94ce043a694923aaa048fc13c3
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "database/create_table.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/database/create_table.twig");
+        return new Twig_Source("", "database/create_table.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/database/create_table.twig");
     }
 }

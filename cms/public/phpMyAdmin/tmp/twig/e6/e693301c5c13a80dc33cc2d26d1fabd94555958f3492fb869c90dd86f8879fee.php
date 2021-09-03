@@ -72,6 +72,6 @@ class __TwigTemplate_7cf6bbfe36e9307ad31207aa54a22edb2fc676a8dcda948a3b6f1278d37
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "checkbox.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/checkbox.twig");
+        return new Twig_Source("", "checkbox.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/checkbox.twig");
     }
 }

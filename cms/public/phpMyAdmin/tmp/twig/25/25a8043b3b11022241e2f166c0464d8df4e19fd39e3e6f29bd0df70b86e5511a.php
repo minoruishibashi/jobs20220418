@@ -70,6 +70,6 @@ class __TwigTemplate_b434a2bcabf42d9c9dcf866f3035b41d102d9c729a40996ab5da87e036d
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display/results/additional_fields.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/display/results/additional_fields.twig");
+        return new Twig_Source("", "display/results/additional_fields.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/display/results/additional_fields.twig");
     }
 }

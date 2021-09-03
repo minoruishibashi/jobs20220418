@@ -76,3 +76,10 @@ Route::delete('/review/{review}', 'PostsController@reviewdestroy');
 Auth::routes();
 
 Route::get('/home', 'PostsController@index')->name('home');
+
+
+//画像アップロード画面表示
+Route::get('/img','ImgController@index');
+
+//画像アップロード処理
+Route::post('/img/upload','ImgController@upload');

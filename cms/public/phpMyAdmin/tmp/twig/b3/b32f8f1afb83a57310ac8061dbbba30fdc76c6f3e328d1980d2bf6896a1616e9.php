@@ -79,6 +79,6 @@ class __TwigTemplate_3c3bcd4ffa85c9926730f6366bf9f9d9dcfe175bb4b90d4ba8cb828a4b7
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "div_for_slider_effect.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/div_for_slider_effect.twig");
+        return new Twig_Source("", "div_for_slider_effect.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/div_for_slider_effect.twig");
     }
 }
