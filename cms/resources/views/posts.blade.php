@@ -1,9 +1,12 @@
 <!-- resources/views/books.blade.php -->
 @extends('layouts.app')
+@push('css')
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
-    {{ Auth::user()->id  }}
 
         <form action="{{ url('/img') }}" method="GET" class="form-horizontal">
             {{ csrf_field() }}
@@ -19,9 +22,10 @@
         <br>
         <br>
         
-        <div class="card" >
-            質問投稿
+        <div class="card"　style="width:15rem; text-align:center">
+            質問を投稿してみよう！
         </div>
+        <p></p>
 
         <!-- バリデーションエラーの表示に使用-->
         @include('common.errors')
@@ -43,7 +47,7 @@
                     <input type="text" name="contents" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                    関連スキル（タグ）
+                    関連スキル
                     <input type="text" name="skill" class="form-control">
                 </div>
                 <div class="col-sm-6">
@@ -70,30 +74,34 @@
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-primary">
-                        Save
+                        質問投稿
                     </button>
                 </div>
             </div>
         </form>
     @endif
         
-    
-    
-    <div class="card" >
-        質問一覧
-    </div>   
+ <div class="row mt-6">
+  <div class="col-md-12 col-12">
+   <div class="card">
+    <div class="card-header bg-white border-bottom-0 py-4">
+          <h class="mb-0">質問一覧</h>
+    </div>
+  
            <!-- 現在の本 -->
     @if (count($posts) > 0)
-        <div class="card-body">
-            <div class="card-body">
-                <table class="table table-striped task-table">
+        <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table text-nowrap mb-0">
                     <!-- テーブルヘッダ -->
-                    <thead>
-                        <th>投稿者写真</th>
+                    <thead class="table-light">
+                        <th></th>
                         <th>投稿者</th>
                         <th>質問</th>
                         <th>内容</th>
-                        <th>関連スキル（タグ）</th>
+                        <th>関連スキル</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
                         <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
@@ -101,16 +109,16 @@
                         @foreach ($posts as $post)
                             <tr>
                                 <!-- 投稿者写真の表示 -->
-                                <td class="table-text">
+                                <td class>
                                 @if( $post->nameor==1)
-                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="auto"  >
+                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="100" class="rounded-circle" >
                                 @elseif( $post->nameor==2)
-                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="auto"  >
+                                <img src="/uploads/{{$post->user->img_url }}" width="100" height="100" class="rounded-circle" >
                                 @elseif( $post->nameor==3)
-                                                            
                                 @endif
                                 </td>
                                  <!-- 投稿者名の表示 -->
+                                
                                 <td class="table-text">
                                 @if( $post->nameor==1)
                                    <div>{{ $post->user->name }}</div>
@@ -189,6 +197,9 @@
             </div>
         </div>
         
+  </div>        
+ </div>
+</div>
 
     @endif
         

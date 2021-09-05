@@ -1,20 +1,29 @@
 @extends('layouts.app')
+@push('css')
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+@endpush
 
 @section('content')
-<div class="row">
+    <div class="card-body">
     <div class="col-md-12">
     @include('common.errors')
 
+        <!-- 質問一覧に戻る -->
+        <div class="well well-sm">
+            <a class="btn btn-link pull-right" href="{{ url('/') }}">
+                質問一覧に戻る
+            </a>
+        </div>
 
         <!-- name と写真-->
         <div class="form-group">
             <label for="item_name">投稿者</label>
                 @if( $posts->nameor==1)
-                <input type="text" name="nameor" class="form-control" value="{{ $posts->user->name }}">
-                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="auto"  >
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->name }}">
+                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
                 @elseif( $posts->nameor==2)
                 <input type="text" name="nameor" class="form-control" value="{{ $posts->user->nickname}}">
-                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="auto"  >
+                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
                 @elseif( $posts->nameor==3)
                 <input type="text" name="nameor" class="form-control" value="匿名">
                 @endif
@@ -37,17 +46,12 @@
 
         <!-- skill_ -->
         <div class="form-group">
-           <label for="item_amount">関連スキル（タグ）</label>
+           <label for="item_amount">関連スキル</label>
         <input type="text" id="item_amount" name="skill" class="form-control" value="{{$posts->skill}}">
         </div>
+        <p></p>
         <!--/ skill -->
 
-        <!-- Saveボタン/Backボタン -->
-        <div class="well well-sm">
-            <a class="btn btn-link pull-right" href="{{ url('/') }}">
-                Back
-            </a>
-        </div>
         <!--/ Saveボタン/Backボタン -->
         
              <!-- CSRF -->
@@ -58,7 +62,11 @@
         <!-- コメントフォーム -->
         <form action="{{ url('details') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
-
+        
+        <p></p>
+        <div class="card"　style="width:15rem; text-align:center">
+            コメントを投稿してみよう！
+        </div>
             <div class="form-group">
                 <div class="col-sm-6">
                     コメント
@@ -90,27 +98,34 @@
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-primary">
-                        Comment Save
+                        コメント投稿
                     </button>
                 </div>
             </div>
         </form>
     </div>
-    
+
+
+ <div class="row mt-6">
+  <div class="col-md-12 col-12">
+   <div class="card">
+    <div class="card-header bg-white border-bottom-0 py-4">
+    　 <h class="mb-0">コメント一覧</h>
+    </div>
      <!-- 現在の本 -->
     @if (count($reviews) > 0)
-        <div class="card-body">
-            <div class="card-body">
-                <div class="" >
-                質問投稿
-                </div>
-                <table class="table table-striped task-table">
+        <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table text-nowrap mb-0">
                     <!-- テーブルヘッダ -->
+                    <thead class="table-light">
                     <thead>
-                        <th>投稿者写真</th>
+                        <th></th>
                         <th>投稿者</th>  
                         <th>コメント</th>  
                         <th>&nbsp;</th>
+                        <th></th>
+
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -119,9 +134,9 @@
                                 <!-- 投稿者写真の表示 -->
                                 <td class="table-text">
                                 @if( $review->nameor==1)
-                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="auto"  >
+                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="100" class="rounded-circle"  >
                                 @elseif( $review->nameor==2)
-                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="auto"  >
+                                <img src="/uploads/{{$review->user->img_url }}" width="100" height="100" class="rounded-circle"  >
                                 @elseif( $review->nameor==3)
                                                             
                                 @endif
@@ -176,6 +191,9 @@
             </div>
         </div>
         
+  </div>
+ </div>
+</div>
  
 
     @endif
