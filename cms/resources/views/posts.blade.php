@@ -134,7 +134,7 @@
                                     <div>{{ $post->title }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $post->contents }}</div>
+                                    <div>{{ $post->contents }}</p></div>
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $post->skill }}</div>
