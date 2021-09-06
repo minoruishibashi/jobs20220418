@@ -10949,3 +10949,7 @@ a.text-dark:focus {
 .fit-picture {
   width: 90px;
 }
+
+.img-upload{
+  padding: 50px;
+}

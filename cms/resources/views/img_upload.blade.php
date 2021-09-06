@@ -11,6 +11,8 @@
     </div>
     @endif
     
+    
+    <div class="img-upload">
     <form action="{{ url('/img/upload') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
@@ -18,8 +20,11 @@
         </div>
         <button type="submit" class="btn btn-primary">送信する</button>
     </form>
+    
     @if($user->img_url)
-        <img src="/uploads/{{ $user->img_url }}">
+        <img src="/uploads/{{ $user->img_url }}" >
     @endif
+
+    </div>
 
 @endsection

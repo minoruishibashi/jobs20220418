@@ -21,15 +21,15 @@
             <div class="form-group">
                 <div class="col-sm-6">
                     質問
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" placeholder="何について質問・ディスカッションしたいですか？">
                 </div>
                 <div class="col-sm-6">
                     内容
-                    <input type="text" name="contents" class="form-control">
+                    <input type="text" name="contents" class="form-control" placeholder="質問背景等、具体的に記入してください">
                 </div>
                 <div class="col-sm-6">
                     関連スキル
-                    <input type="text" name="skill" class="form-control">
+                    <input type="text" name="skill" class="form-control" placeholder="例:新規事業開発、海外市場、事業投資、人事 etc">
                 </div>
                 <div class="col-sm-6">
                    <label for="radio01" class="col-sm-6">投稿方法</label>

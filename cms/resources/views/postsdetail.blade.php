@@ -22,7 +22,7 @@
                 <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->name }}">
                 <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
                 @elseif( $posts->nameor==2)
-                <input type="text" name="nameor" class="form-control" value="{{ $posts->user->nickname}}">
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->nickname}}">
                 <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
                 @elseif( $posts->nameor==3)
                 <input type="text" name="nameor" class="form-control" value="匿名">
@@ -64,13 +64,13 @@
             {{ csrf_field() }}
         
         <p></p>
-        <div class="card"　style="width:15rem; text-align:center">
+        <div class=class="form-control" style="width:auto">
             コメントを投稿してみよう！
         </div>
             <div class="form-group">
                 <div class="col-sm-6">
-                    コメント
-                    <input type="text" name="review_text" class="form-control">
+                    <p></p>
+                    <input type="text" name="review_text" class="form-control" placeholder="コメントを入力する">
                 </div>
 
                    <div class="col-sm-6">
