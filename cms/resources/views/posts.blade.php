@@ -8,25 +8,6 @@
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
 
-        <form action="{{ url('/img') }}" method="GET" class="form-horizontal">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">
-                        プロフィール画像アップロード
-                    </button>
-                </div>
-            </div>
-        </form>
-        
-        <br>
-        <br>
-        
-        <div class="card"　style="width:15rem; text-align:center">
-            質問を投稿してみよう！
-        </div>
-        <p></p>
-
         <!-- バリデーションエラーの表示に使用-->
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
