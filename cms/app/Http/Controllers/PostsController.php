@@ -274,5 +274,27 @@ class PostsController extends Controller
              return back();
         
     }
-
+    
+    //マイページ
+      public function mypage(){
+   
+        // 全ての投稿を取得
+        $users = User::get();
+        return view('mypage',[
+            'users'=> $users,
+            ]);
+            
+        }
+        
+    //KENMUメンバー
+     public function kenmumember(){
+   
+        // 全ての投稿を取得
+        $users = User::get();
+        return view('kenmumember',[
+            'users'=> $users,
+            ]);
+            
+        }
+    
 }

@@ -83,3 +83,10 @@ Route::get('/img','ImgController@index');
 
 //画像アップロード処理
 Route::post('/img/upload','ImgController@upload');
+
+//マイページ（保留）
+Route::get('/mypage','PostsController@mypage');
+
+
+//KENMU メンバー
+Route::get('/kenmumember','PostsController@kenmumember');

@@ -12,6 +12,26 @@
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
 
+        <form action="{{ url('mypage') }}" method="GET" class="form-horizontal">
+            {{ csrf_field() }}
+         
+             <button type="submit" class="btn btn-primary">
+             マイページへ
+             </button>   
+        </form>
+        
+        <br>
+    
+        <form action="{{ url('kenmumember') }}" method="GET" class="form-horizontal">
+            {{ csrf_field() }}
+         
+             <button type="submit" class="btn btn-primary">
+             KENMUメンバー一覧へ
+             </button>   
+        </form>
+        
+        <br>
+        
         <!-- 本登録フォーム -->
         @if( Auth::check() )
         <form action="{{ url('posts') }}" method="POST" class="form-horizontal">
