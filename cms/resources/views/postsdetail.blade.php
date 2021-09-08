@@ -157,7 +157,7 @@
                                     <div>{{ $review->review_text }}</div>
                                 </td>
                                 
-
+                              @if(auth()->user()->id == $review->user_id)  
                                 <!--更新ボタン-->
                                 <td>
                                     <form action="{{ url('reviewsedit/'.$review->id) }}" method="POST">
@@ -180,9 +180,9 @@
                                     <button type="submit" class="btn btn-danger">
                                         削除
                                     </button>
-                                 </form
+                                 </form>
                                 </td>
-                                
+                            @endif   
                                 
                             </tr>
                         @endforeach
