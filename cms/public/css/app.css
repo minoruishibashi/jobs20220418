@@ -989,7 +989,7 @@ pre code {
 
   .col-sm-6 {
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 100%;
   }
 
   .col-sm-7 {
@@ -2757,6 +2757,47 @@ fieldset:disabled a.btn {
 
 .btn-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+.btn-third {
+  color: #fff;
+  background-color: #ffc489;
+  border-color: #ffc489;
+}
+
+.btn-third:hover {
+  color: #fff;
+  background-color: #ffc489;
+  border-color: #ffc489;
+}
+
+.btn-third:focus,
+.btn-third.focus {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+.btn-third.disabled,
+.btn-third:disabled {
+  color: #fff;
+  background-color: #ffc489;
+  border-color: #ffc489;
+}
+
+.btn-third:not(:disabled):not(.disabled):active,
+.btn-third:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #ffc489;
+  border-color: #4e555b;
+}
+
+.btn-third:not(:disabled):not(.disabled):active:focus,
+.btn-third:not(:disabled):not(.disabled).active:focus,
 .show > .btn-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
 }
