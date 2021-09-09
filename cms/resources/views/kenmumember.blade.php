@@ -26,12 +26,11 @@
     @if (count($users) > 0)
         <div class="table-responsive">
             <div class="table-responsive">
-                <table class="table text-nowrap mb-0">
+                <table class="table text-wrap mb-0">
                     <!-- テーブルヘッダ -->
                     <thead class="table-light">
                         <th></th>
                         <th>Name</th>
-                        <th>E-Mail Address</th>
                         <th>Skill</th>
                         <th>Profile</th>
                         <th>Nickname</th>
@@ -55,9 +54,6 @@
                                 </td>
                                 
                                  <!--E-Mail Address -->
-                                <td class="table-text">
-                                    <div>{{ $user->email }}</div>
-                                </td>
                                 <td class="table-text">
                                     <div>{{ $user->skill }}</div>
                                 </td>
