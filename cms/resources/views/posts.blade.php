@@ -15,19 +15,27 @@
         <form action="{{ url('mypage') }}" method="GET" class="form-horizontal">
             {{ csrf_field() }}
          
-             <button type="submit" class="btn btn-primary">
+            <div class="form-group">
+             <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-third">
              マイページへ
-             </button>   
+                </button>  
+             </div>
+            </div>
         </form>
         
-        <br>
     
         <form action="{{ url('kenmumember') }}" method="GET" class="form-horizontal">
             {{ csrf_field() }}
          
-             <button type="submit" class="btn btn-primary">
-             KENMUメンバー一覧へ
-             </button>   
+            <div class="form-group">
+             <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-third">
+              KENMUメンバー一覧へ
+                </button>  
+             </div>
+            </div>
+
         </form>
         
         <br>
@@ -45,7 +53,7 @@
                 </div>
                 <div class="col-sm-6">
                     内容
-                    <input type="text" name="contents" class="form-control" placeholder="質問背景等、具体的に記入してください">
+                    <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" placeholder="質問背景等、具体的に記入してください"></textarea> 
                 </div>
                 <div class="col-sm-6">
                     関連スキル
@@ -93,14 +101,14 @@
     @if (count($posts) > 0)
         <div class="table-responsive">
             <div class="table-responsive">
-                <table class="table text-nowrap mb-0">
+                <table class="table text-wrap mb-0">
                     <!-- テーブルヘッダ -->
                     <thead class="table-light">
                         <th></th>
-                        <th>投稿者</th>
-                        <th>質問</th>
-                        <th>内容</th>
-                        <th>関連スキル</th>
+                        <th>NAME</th>
+                        <th>QUESTION</th>
+                        <th>CONTENTS</th>
+                        <th>RELATED AREAS</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
@@ -134,7 +142,7 @@
                                 <td class="table-text">
                                     <div>{{ $post->title }}</div>
                                 </td>
-                                <td class="table-text">
+                                <td class="table-text" >
                                     <div>{{ $post->contents }}</p></div>
                                 </td>
                                 <td class="table-text">
@@ -158,7 +166,7 @@
                                     <form action="{{ url('postsdetail/'.$post ->id) }}" method="GET">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
-                                            詳細
+                                            Detail
                                         </button>
                                     </form>
                                 </td>
@@ -170,7 +178,7 @@
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
-                                            更新
+                                            Fix
                                         </button>
                                     </form>
                                 </td>
@@ -186,7 +194,7 @@
                                      {{ method_field('delete') }}
                                     
                                     <button type="submit" class="btn btn-danger">
-                                        削除
+                                        Delete
                                     </button>
                                  </form>
                                 </td>
