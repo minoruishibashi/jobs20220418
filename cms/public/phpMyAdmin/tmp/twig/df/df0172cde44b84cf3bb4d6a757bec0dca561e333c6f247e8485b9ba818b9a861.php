@@ -134,6 +134,6 @@ class __TwigTemplate_7c93c3ce985d590092ec16053f6c0bcdcb96d083ccd3570753bb32b8a9c
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/check_all_table_column.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/check_all_table_column.twig");
+        return new Twig_Source("", "table/structure/check_all_table_column.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/check_all_table_column.twig");
     }
 }

@@ -102,6 +102,6 @@ class __TwigTemplate_6523389f765ac02a5a392a7fba3cb4849d0f2a5cca0ff72ef365c668746
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/action_row_in_structure_table.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/action_row_in_structure_table.twig");
+        return new Twig_Source("", "table/structure/action_row_in_structure_table.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/action_row_in_structure_table.twig");
     }
 }

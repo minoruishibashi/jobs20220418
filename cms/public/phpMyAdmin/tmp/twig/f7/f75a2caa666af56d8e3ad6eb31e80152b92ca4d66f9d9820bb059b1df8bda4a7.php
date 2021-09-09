@@ -116,6 +116,6 @@ class __TwigTemplate_1fc8cfa23056ef3a6f7ef004da958c4ae5308c8de89fe17faf9a866906d
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/optional_action_links.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/optional_action_links.twig");
+        return new Twig_Source("", "table/structure/optional_action_links.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/optional_action_links.twig");
     }
 }

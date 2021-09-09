@@ -40,7 +40,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="XXX@mitsubishicorp.com">
     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -50,6 +50,19 @@
                                 </div>
                             </div>
     
+                          <div class="form-group row">
+                                <label for="mc_code" class="col-md-4 col-form-label text-md-right">{{ __('MC Personal Code') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="mc_code" type="text" class="form-control @error('email') is-invalid @enderror" name="mc_code" value="{{ old('mc_code') }}" required autocomplete="mc_code" placeholder="MCXXXXXX">
+    
+                                    @error('mc_code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
     

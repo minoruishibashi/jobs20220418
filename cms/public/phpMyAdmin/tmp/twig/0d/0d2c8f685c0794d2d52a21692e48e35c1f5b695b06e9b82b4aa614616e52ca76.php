@@ -282,6 +282,6 @@ class __TwigTemplate_5a2c0bdd8865cd6d3019f884820d69a209f225fa5add6c653111bb33a48
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/row_stats_table.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/row_stats_table.twig");
+        return new Twig_Source("", "table/structure/row_stats_table.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/row_stats_table.twig");
     }
 }

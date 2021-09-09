@@ -219,6 +219,6 @@ class __TwigTemplate_26536d018699b2aded20dda6ada330aad17972983a973791e8e5f422816
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/actions_in_table_structure.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/actions_in_table_structure.twig");
+        return new Twig_Source("", "table/structure/actions_in_table_structure.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/actions_in_table_structure.twig");
     }
 }

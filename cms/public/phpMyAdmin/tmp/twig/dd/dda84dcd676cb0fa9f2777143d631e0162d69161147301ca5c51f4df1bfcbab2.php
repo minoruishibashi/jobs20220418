@@ -125,6 +125,6 @@ class __TwigTemplate_004a1bba89d8fdd565c5cf244b3cb17c256ded7441e43da2cdecd2d319a
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/add_column.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/add_column.twig");
+        return new Twig_Source("", "table/structure/add_column.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/add_column.twig");
     }
 }

@@ -100,6 +100,6 @@ class __TwigTemplate_d20046f341ce7aebd42c1a090b73b991e9b9d61df8a87c69e8169fb37ce
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/table_structure_header.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/structure/table_structure_header.twig");
+        return new Twig_Source("", "table/structure/table_structure_header.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/structure/table_structure_header.twig");
     }
 }

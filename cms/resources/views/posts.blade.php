@@ -178,7 +178,7 @@
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
-                                            Fix
+                                            Edit
                                         </button>
                                     </form>
                                 </td>

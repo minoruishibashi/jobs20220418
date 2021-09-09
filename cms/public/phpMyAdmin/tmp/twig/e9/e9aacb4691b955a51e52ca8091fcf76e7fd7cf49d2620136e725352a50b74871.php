@@ -60,6 +60,6 @@ class __TwigTemplate_69404e017d791edd0d7237762e06f2d0108d68cb0bd9e137bf455579988
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/secondary_tabs.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/table/secondary_tabs.twig");
+        return new Twig_Source("", "table/secondary_tabs.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/table/secondary_tabs.twig");
     }
 }

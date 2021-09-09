@@ -57,6 +57,6 @@ class __TwigTemplate_ef181e96c46db13bab5d12d62cf022087e73f87f44bec00e50db1868534
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "config/form_display/group_header.twig", "/home/ec2-user/environment/cms/public/phpMyAdmin/templates/config/form_display/group_header.twig");
+        return new Twig_Source("", "config/form_display/group_header.twig", "/home/ec2-user/environment/kenmu_03/cms/public/phpMyAdmin/templates/config/form_display/group_header.twig");
     }
 }
