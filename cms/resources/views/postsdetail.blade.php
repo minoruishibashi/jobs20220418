@@ -32,22 +32,28 @@
     
         <!-- title -->
         <div class="form-group">
+        　<div class="col-sm-6">
            <label for="item_name">質問</label>
            <input type="text" id="item_name" name="title" class="form-control" value="{{$posts->title}}">
+         </div>
         </div>
         <!--/ title -->
         
         <!-- contents -->
         <div class="form-group">
+        　<div class="col-sm-6">
            <label for="item_number">内容</label>
-        <input type="text" id="item_number" name="contents" class="form-control" value="{{$posts->contents}}">
+        <input type="text" id="item_number" name="contents" class="form-control table text-wrap mb-0" value="{{$posts->contents}}">
+    　　    </div>
         </div>
         <!--/ contents -->
 
         <!-- skill_ -->
         <div class="form-group">
+        　<div class="col-sm-6">
            <label for="item_amount">関連スキル</label>
         <input type="text" id="item_amount" name="skill" class="form-control" value="{{$posts->skill}}">
+          </div>
         </div>
         <p></p>
         <!--/ skill -->
@@ -70,7 +76,7 @@
             <div class="form-group">
                 <div class="col-sm-6">
                     <p></p>
-                    <input type="text" name="review_text" class="form-control" placeholder="コメントを入力する">
+                    <textarea name="review_text" class="form-control" cols="40" rows="5" wrap="hard" placeholder="コメントを入力する"></textarea> 
                 </div>
 
                    <div class="col-sm-6">
@@ -116,13 +122,13 @@
     @if (count($reviews) > 0)
         <div class="table-responsive">
             <div class="table-responsive">
-                <table class="table text-nowrap mb-0">
+                <table class="table text-wrap mb-0">
                     <!-- テーブルヘッダ -->
                     <thead class="table-light">
                     <thead>
                         <th></th>
-                        <th>投稿者</th>  
-                        <th>コメント</th>  
+                        <th>NAME</th>  
+                        <th>COMMENTS</th>  
                         <th>&nbsp;</th>
                         <th></th>
 
@@ -163,7 +169,7 @@
                                     <form action="{{ url('reviewsedit/'.$review->id) }}" method="POST">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
-                                            更新
+                                            Fix
                                         </button>
                                     </form>
                                 </td>
@@ -178,7 +184,7 @@
                                      {{ method_field('delete') }}
                                     
                                     <button type="submit" class="btn btn-danger">
-                                        削除
+                                        Delete
                                     </button>
                                  </form>
                                 </td>
