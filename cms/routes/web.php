@@ -84,9 +84,14 @@ Route::get('/img','ImgController@index');
 //画像アップロード処理
 Route::post('/img/upload','ImgController@upload');
 
-//マイページ（保留）
+//マイページ
 Route::get('/mypage','PostsController@mypage');
 
+//マイページ更新処理(ユーザー情報変更）
+Route::post('/users/update', 'PostsController@usersupdate');
+
+//マイページ更新処理(ユーザー情報変更）
+Route::resource('useredit', 'UserController')->only(['index',  'update', 'destroy']);
 
 //KENMU メンバー
 Route::get('/kenmumember','PostsController@kenmumember');

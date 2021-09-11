@@ -21,8 +21,8 @@
         <!-- title -->
         <div class="form-group">
            <div class="col-sm-6">            
-           <label for="item_name">投稿者</label>
-           <input type="text" id="item_name" name="title" class="form-control" value="{{$post->title}}">
+           <label for="item_name">投稿者</label> 
+           <input type="text" id="item_name" name="title" class="form-control" value="{{$post->user->name}}">
            </div>
            </div>
         <!--/ title -->

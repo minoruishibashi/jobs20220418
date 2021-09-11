@@ -278,14 +278,48 @@ class PostsController extends Controller
     //マイページ
       public function mypage(){
    
-        // 全ての投稿を取得
-        $users = User::get();
+        // ログインユーザー情報取得
+       $user = Auth::user();
+
         return view('mypage',[
-            'users'=> $users,
+            'users'=> $user,
             ]);
             
         }
+    //マイページ更新
+    
+    public function usersupdate(Request $request){
         
+      //バリデーション
+            $validator = Validator::make($request->all(), [
+                'id' => 'required',
+                'name' => 'required|max:255',
+                'email' => 'required|max:255',
+                'mc_code' => 'required|max:255',
+                'skill' => 'required|max:255',
+                'profile' => 'required|max:255',
+                'password' => 'max:255'
+        ]);
+        //バリデーション:エラー
+            if ($validator->fails()) {
+                return redirect('/')
+                    ->withInput()
+                    ->withErrors($validator);
+        }
+        
+        // $posts = Post::find($request->id);
+        $users = User::where("id",Auth::user()->id)->find($request->id);  //Reviewのtableから検索→whereで条件指定 user_id→”, ”= ＝→Auth user id→ find(>whereと同じ）posts tableのuser_id=Authのid これをfindしてrequestでidに入れる
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->mc_code = $request->mc_code;
+        $users->skill = $request->skill;
+        $users->profile = $request->profile;
+        $users->nickname = $request->nickname;
+        $users->save();
+        return redirect('/mypage');
+            
+        }
+
     //KENMUメンバー
      public function kenmumember(){
    

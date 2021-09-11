@@ -14,10 +14,21 @@
         <!-- バリデーションエラーの表示に使用-->
 
 
+        <!-- 戻る -->
+        <div class="well well-sm">
+            <a class="btn btn-link pull-right" href="{{ url('/') }}">
+                HOME
+            </a>
+          
+        </div>
+        
+        
         <!-- 本登録フォーム -->
         @if( Auth::check() )
         
         
+        <form action="{{ url('users/update') }}" method="POST">
+              
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -28,11 +39,12 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
         
+                                <!--/ title -->
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$users->name}}" required autocomplete="name" autofocus>
         
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -49,7 +61,7 @@
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$users->email}}" required autocomplete="email">
         
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -63,7 +75,7 @@
                                     <label for="mc_code" class="col-md-4 col-form-label text-md-right">{{ __('MC Personal Code') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="mc_code" type="text" class="form-control @error('mc_code') is-invalid @enderror" name="mc_code" value="{{ old('mc_code') }}" required autocomplete="mc_code">
+                                        <input id="mc_code" type="text" class="form-control @error('mc_code') is-invalid @enderror" name="mc_code" value="{{$users->mc_code}}" required autocomplete="mc_code">
         
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -72,35 +84,14 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-        
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-        
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-        
-                                <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-        
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                    </div>
-                                </div>
-        
+         
         
         <!--スキル-->
                                <div class="form-group row">
                                     <label for="skill" class="col-md-4 col-form-label text-md-right">{{ __('Skill') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="skill" type="text" class="form-control @error('skill') is-invalid @enderror" name="skill" value="{{ old('skill') }}" required autocomplete="skill" autofocus>
+                                        <input id="skill" type="text" class="form-control @error('skill') is-invalid @enderror" name="skill" value="{{$users->skill}}" required autocomplete="skill" autofocus>
         
                                         @error('skill')
                                             <span class="invalid-feedback" role="alert">
@@ -116,7 +107,7 @@
                                     <label for="profile" class="col-md-4 col-form-label text-md-right">{{ __('Profile') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="profile" type="text" class="form-control @error('profile') is-invalid @enderror" name="profile" value="{{ old('profile') }}" required autocomplete="profile" autofocus>
+                                        <input id="profile" type="text" class="form-control @error('profile') is-invalid @enderror" name="profile" value="{{$users->profile}}" required autocomplete="profile" autofocus>
         
                                         @error('profile')
                                             <span class="invalid-feedback" role="alert">
@@ -132,7 +123,7 @@
                                     <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Nickname') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ old('nickname') }}" required autocomplete="nickname" autofocus>
+                                        <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{$users->nickname}}" required autocomplete="nickname" autofocus>
         
                                         @error('nickname')
                                             <span class="invalid-feedback" role="alert">
@@ -143,15 +134,54 @@
                                 </div>
         <!--ニックネーム-->
         
+        <!--PW-->
+        <!--                       <div class="form-group row">-->
+        <!--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>-->
         
+        <!--                            <div class="col-md-6">-->
+        <!--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="PWを変更する場合、記入してください">-->
+        
+        <!--                                @error('password')-->
+        <!--                                    <span class="invalid-feedback" role="alert">-->
+        <!--                                        <strong>{{ $message }}</strong>-->
+        <!--                                    </span>-->
+        <!--                                @enderror-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        
+        <!--                        <div class="form-group row">-->
+        <!--                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>-->
+        
+        <!--                            <div class="col-md-6">-->
+        <!--                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        
+             
+                                 <input type="hidden" name="id" value="{{$users->id}}">
         
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Register') }}
+                                            {{ __('変更する') }}
                                         </button>
                                     </div>
                                 </div>
+                                
+                                  <div> 
+                                  <a href='/img'  class="form-horizontal">
+                                    プロフィール画像変更はこちら
+                                  </a>
+                                  </div>
+
+                                  <div> 
+                                  <a href='/img'  class="form-horizontal">
+                                    パスワード変更はこちら（これから編集）
+                                  </a>
+                                  </div>
+
+                                 
+                        </div>
                             </form>
                         </div>
                     </div>
