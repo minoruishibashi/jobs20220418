@@ -1,38 +1,56 @@
 @extends('layouts.app')
+@push('css')
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+@endpush
 
 @section('content')
-<div class="row">
-        {{ Auth::user()->id  }}
+
+<div class="card-body">
 
     <div class="col-md-12">
     @include('common.errors')
     <form action="{{ url('posts/update') }}" method="POST">
 
+        <!-- 質問一覧に戻る -->
+        <div class="well well-sm">
+            <a class="btn btn-link pull-right" href="{{ url('/') }}">
+                質問一覧に戻る
+            </a>
+        </div>
+
         <!-- title -->
         <div class="form-group">
+           <div class="col-sm-6">            
            <label for="item_name">投稿者</label>
-           <input type="text" id="item_name" name="title" class="form-control" value="{{$post->user->name}}">
-        </div>
+           <input type="text" id="item_name" name="title" class="form-control" value="{{$post->title}}">
+           </div>
+           </div>
         <!--/ title -->
 
         <!-- title -->
         <div class="form-group">
-           <label for="item_name">質問</label>
-           <input type="text" id="item_name" name="title" class="form-control" value="{{$post->title}}">
+          <div class="col-sm-6">            
+          <label for="item_name">質問</label>
+          <input type="text" name="title" class="form-control" value="{{$post->title}}">
+          </div>
         </div>
         <!--/ title -->
         
         <!-- contents -->
         <div class="form-group">
-           <label for="item_number">内容</label>
-        <input type="text" id="item_number" name="contents" class="form-control" value="{{$post->contents}}">
+            <div class="col-sm-6">
+            <label for="item_number">内容</label>
+            <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" value="{{$post->contents}}"></textarea>
+            </div>
         </div>
         <!--/ contents -->
 
         <!-- skill_ -->
         <div class="form-group">
+           <div class="col-sm-6">
            <label for="item_amount">関連スキル（タグ）</label>
-        <input type="text" id="item_amount" name="skill" class="form-control" value="{{$post->skill}}">
+           <input type="text" id="item_amount" name="skill" class="form-control" value="{{$post->skill}}">
+           </div>
         </div>
         <!--/ skill -->
         
@@ -55,16 +73,13 @@
        </div>
         <!--/ published -->
         
-            
+        <br></br>
+        
         <!-- Saveボタン/Backボタン -->
-        <div class="well well-sm">
-            <button type="submit" class="btn btn-primary">
-                Save
-            </button>
-            <a class="btn btn-link pull-right" href="{{ url('/') }}">
-                Back
-            </a>
-        </div>
+            <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-primary">更新する</button>
+            </div>
         <!--/ Saveボタン/Backボタン -->
          
          <input type="hidden" name="id" value="{{$post->id}}">

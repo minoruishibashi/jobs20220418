@@ -11,34 +11,6 @@
         <!-- バリデーションエラーの表示に使用-->
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
-
-        <form action="{{ url('mypage') }}" method="GET" class="form-horizontal">
-            {{ csrf_field() }}
-         
-            <div class="form-group">
-             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-third">
-             マイページへ
-                </button>  
-             </div>
-            </div>
-        </form>
-        
-    
-        <form action="{{ url('kenmumember') }}" method="GET" class="form-horizontal">
-            {{ csrf_field() }}
-         
-            <div class="form-group">
-             <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-third">
-              KENMUメンバー一覧へ
-                </button>  
-             </div>
-            </div>
-
-        </form>
-        
-        <br>
         
         <!-- 本登録フォーム -->
         @if( Auth::check() )
@@ -53,7 +25,7 @@
                 </div>
                 <div class="col-sm-6">
                     内容
-                    <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" placeholder="質問背景等、具体的に記入してください"></textarea> 
+                <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" placeholder="質問背景等、具体的に記入してください"></textarea> 
                 </div>
                 <div class="col-sm-6">
                     関連スキル
@@ -109,6 +81,7 @@
                         <th>QUESTION</th>
                         <th>CONTENTS</th>
                         <th>RELATED AREAS</th>
+                        <th>DATE</th>                        
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
@@ -148,6 +121,9 @@
                                 <td class="table-text">
                                     <div>{{ $post->skill }}</div>
                                 </td>
+                                <td class="table-text">
+                                    <div> {{ $post->created_at->format('Y/m/d') }}</div>
+                                </td>  
                                 
                                 <!--<td class="table-text">-->
                                 <!--    <form action="{{ url('post/'.$post->id) }}" method="POST">-->

@@ -17,15 +17,23 @@
 
         <!-- name と写真-->
         <div class="form-group">
+           <div class="col-sm-6">            
             <label for="item_name">投稿者</label>
+            </div>
                 @if( $posts->nameor==1)
+                <div class="yokonarabi">
+                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
                 <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->name }}">
-                <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
+                </div>
                 @elseif( $posts->nameor==2)
-                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->nickname}}">
+                <div class="yokonarabi">
                 <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->nickname}}">
+                </div>
                 @elseif( $posts->nameor==3)
-                <input type="text" name="nameor" class="form-control" value="匿名">
+                <div class="col-sm-6">            
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="匿名">
+                </div>
                 @endif
         </div>
          <!--/ id値を送信 -->
@@ -41,10 +49,9 @@
         
         <!-- contents -->
         <div class="form-group">
-        　<div class="col-sm-6">
+           <div class="col-sm-6">
            <label for="item_number">内容</label>
-        <input type="text" id="item_number" name="contents" class="form-control table text-wrap mb-0" value="{{$posts->contents}}">
-    　　    </div>
+        　　<input type="text" id="item_number" name="contents" class="form-control table text-wrap" value="{{$posts->contents}}">
         </div>
         <!--/ contents -->
 
@@ -70,7 +77,7 @@
             {{ csrf_field() }}
         
         <p></p>
-        <div class=class="form-control" style="width:auto">
+           <div class="col-sm-6">            
             コメントを投稿してみよう！
         </div>
             <div class="form-group">
@@ -129,6 +136,7 @@
                         <th></th>
                         <th>NAME</th>  
                         <th>COMMENTS</th>  
+                        <th>DATE</th>  
                         <th>&nbsp;</th>
                         <th></th>
 
@@ -162,6 +170,9 @@
                                 <td class="table-text">
                                     <div>{{ $review->review_text }}</div>
                                 </td>
+                                <td class="table-text">
+                                    <div> {{ $review->created_at->format('Y/m/d') }}</div>
+                                </td>                                  
                                 
                               @if(auth()->user()->id == $review->user_id)  
                                 <!--更新ボタン-->

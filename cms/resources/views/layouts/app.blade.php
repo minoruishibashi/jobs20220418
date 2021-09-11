@@ -41,7 +41,26 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    
+                    <form action="{{ url('mypage') }}" method="GET" class="form-horizontal">
+                        {{ csrf_field() }}
+                         <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" class="btn btn-third">
+                            My Page
+                            </button>  
+                         </div>
+                    </form>
+                    
+                    <form action="{{ url('kenmumember') }}" method="GET" class="form-horizontal">
+                        {{ csrf_field() }}
+                         <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" class="btn btn-third">
+                         Member's List
+                            </button>  
+                         </div>
+                    </form>
+                    
+                    <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -67,7 +86,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-
+                                    
                                     <form action="{{ url('/img') }}" method="GET" class="form-horizontal">
                                         {{ csrf_field() }}
                                         <div class="form-group">

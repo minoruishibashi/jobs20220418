@@ -1,24 +1,36 @@
 @extends('layouts.app')
+@push('css')
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+@endpush
 
 @section('content')
-<div class="row">
-        {{ Auth::user()->id  }}
+<div class="card-body">
 
     <div class="col-md-12">
     @include('common.errors')
     <form action="{{ url('reviews/update') }}" method="POST">
 
+        <!-- 質問一覧に戻る -->
+        <div class="well well-sm">
+            <a class="btn btn-link pull-right" href="{{ url('/') }}">
+                コメント一覧に戻る
+            </a>
+        </div>
 
         <!-- title -->
         <div class="form-group">
+           <div class="col-sm-6">            
            <label for="item_name">投稿者</label>
            <input type="text" id="item_name" name="title" class="form-control" value="{{$review->user->name}}">
+           </div>        
         </div>
         <!--/ title -->
         <!-- title -->
         <div class="form-group">
+           <div class="col-sm-6">            
            <label for="item_name">コメント</label>
-           <input type="text" id="" name="review_text" class="form-control" value="{{$review->review_text}}">
+           <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" value="{{$review->review_text}}"></textarea>
+           </div>
         </div>
         <!--/ title -->
         
@@ -42,15 +54,14 @@
         <!--/ contents -->
 
         <!-- Saveボタン/Backボタン -->
-        <div class="well well-sm">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-link pull-right" href="{{ url('/') }}">
-                Back
-            </a>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-primary">
+                    更新する
+                </button>
+            </div>
         </div>
         <!--/ Saveボタン/Backボタン -->
-         
-         {{$review->posts_id}};
          
          <input type="hidden" name="id" value="{{$review->id}}">
          <input type="hidden" name="posts_id" value="{{$review->posts_id}}">

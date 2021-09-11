@@ -4558,7 +4558,6 @@ input[type=button].btn-block {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   padding: 0.5rem 1rem;
 }
 
@@ -10988,9 +10987,15 @@ a.text-dark:focus {
 }
 
 .fit-picture {
-  width: 90px;
+  width: 100px;
+  margin-right : auto ; 
+  
 }
 
 .img-upload{
   padding: 50px;
+}
+
+.yokonarabi{
+  display: flex;
 }

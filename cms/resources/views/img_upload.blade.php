@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@push('css')
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
 
     @if ($errors->any())
