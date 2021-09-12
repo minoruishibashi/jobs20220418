@@ -51,7 +51,7 @@
         <div class="form-group">
            <div class="col-sm-6">
            <label for="item_number">内容</label>
-        　　<input type="text" id="item_number" name="contents" class="form-control table text-wrap" value="{{$posts->contents}}">
+          　<textarea id="item_number" name="contents" class="form-control" cols="40" rows="5" wrap="hard">{{$posts->contents}}</textarea>
         </div>
         <!--/ contents -->
 
