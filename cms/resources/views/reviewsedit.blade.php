@@ -28,8 +28,8 @@
         <!-- title -->
         <div class="form-group">
            <div class="col-sm-6">            
-           <label for="item_name">コメント</label>
-           <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" value="{{$review->review_text}}"></textarea>
+           <label for="item_number">コメント</label>
+           <textarea id="item_number" name="review_text" class="form-control" cols="40" rows="5" wrap="hard">{{$review->review_text}}</textarea>
            </div>
         </div>
         <!--/ title -->
