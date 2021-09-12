@@ -40,7 +40,7 @@
         <div class="form-group">
             <div class="col-sm-6">
             <label for="item_number">内容</label>
-            <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" value="{{$post->contents}}"></textarea>
+            <textarea id="item_number" name="contents" class="form-control" cols="40" rows="5" wrap="hard">{{$post->contents}}</textarea>
             </div>
         </div>
         <!--/ contents -->
