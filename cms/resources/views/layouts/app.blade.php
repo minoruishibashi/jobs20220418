@@ -86,19 +86,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    
-                                    <form action="{{ url('/img') }}" method="GET" class="form-horizontal">
-                                        {{ csrf_field() }}
-                                        <div class="form-group">
-                                            <div class="logout-form">
-                                                <button type="submit" class="btn down-toggle">
-                                                    プロフィール画像
-                                                </button>
-                                            </div>
-                                        </div>
-                                        @csrf
-                                    </form>
-
                                 </div>
                             </li>
                         @endguest

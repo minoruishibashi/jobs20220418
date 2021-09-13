@@ -13,16 +13,6 @@
         @include('common.errors')
         <!-- バリデーションエラーの表示に使用-->
 
-
-        <!-- 戻る -->
-        <div class="well well-sm">
-            <a class="btn btn-link pull-right" href="{{ url('/') }}">
-                HOME
-            </a>
-          
-        </div>
-        
-        
         <!-- 本登録フォーム -->
         @if( Auth::check() )
         
@@ -41,7 +31,7 @@
         
                                 <!--/ title -->
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right" >{{ __('Name') }}</label>
         
                                     <div class="col-md-6">
                                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$users->name}}" required autocomplete="name" autofocus>
@@ -72,7 +62,7 @@
                                 </div>
             
                                 <div class="form-group row">
-                                    <label for="mc_code" class="col-md-4 col-form-label text-md-right">{{ __('MC Personal Code') }}</label>
+                                    <label for="mc_code" class="col-md-4 col-form-label text-md-right span8">{{ __('MC Personal Code') }}</label>
         
                                     <div class="col-md-6">
                                         <input id="mc_code" type="text" class="form-control @error('mc_code') is-invalid @enderror" name="mc_code" value="{{$users->mc_code}}" required autocomplete="mc_code">
@@ -91,8 +81,7 @@
                                     <label for="skill" class="col-md-4 col-form-label text-md-right">{{ __('Skill') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="skill" type="text" class="form-control @error('skill') is-invalid @enderror" name="skill" value="{{$users->skill}}" required autocomplete="skill" autofocus>
-        
+                                        <textarea id="skill" class="form-control @error('skill') is-invalid @enderror" name="skill" required autocomplete="skill" autofocus cols="40" rows="3" wrap="hard">{{$users->skill}}</textarea>
                                         @error('skill')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -107,7 +96,7 @@
                                     <label for="profile" class="col-md-4 col-form-label text-md-right">{{ __('Profile') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="profile" type="text" class="form-control @error('profile') is-invalid @enderror" name="profile" value="{{$users->profile}}" required autocomplete="profile" autofocus>
+                                        <textarea id="profile" class="form-control @error('profile') is-invalid @enderror" name="profile" required autocomplete="profile" autofocus cols="40" rows="5" wrap="hard">{{$users->profile}}</textarea>
         
                                         @error('profile')
                                             <span class="invalid-feedback" role="alert">
