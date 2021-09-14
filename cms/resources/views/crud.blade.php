@@ -16,7 +16,6 @@
         </form>
         </div>
         <!--↑↑ 検索フォーム ↑↑-->
-          <div class="col-sm-8" style="text-align:right;">
 
      <div class="table-responsive">
             <div class="table-responsive">
@@ -60,7 +59,7 @@
                                 
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
-                                    <div>{{ $d->title }}</div>
+                                     <div>{{$d->title }}</div>
                                 </td>
                                 <td class="table-text" >
                                     <div>{{ $d->contents }}</p></div>
@@ -119,6 +118,7 @@
                     </tbody>
                     
                     
+                    <!-- ユーザー名検索の場合-->
                     
                      <tbody>
                         @foreach ($data_user as $du)
@@ -141,56 +141,85 @@
                                 @elseif( $post->nameor==2)
                                    <div>{{ $post->user->nickname }}</div>
                                 @elseif( $post->nameor==3)
-                                   <div>匿名</div>
                                 @endif
                                 </td>
                                 
                                 <!-- 投稿タイトルほか -->
                                 <td class="table-text">
+                                  @if( $post->nameor==1)
                                     <div>{{ $post->title }}</div>
+                                  @elseif( $post->nameor==2)
+                                    <div>{{ $post->title }}</div>
+                                  @elseif( $post->nameor==3)
+                                  @endif
                                 </td>
                                 <td class="table-text" >
+                                  @if( $post->nameor==1)
                                     <div>{{ $post->contents }}</p></div>
+                                  @elseif( $post->nameor==2)
+                                    <div>{{ $post->contents }}</p></div>
+                                  @elseif( $post->nameor==3)
+                                  @endif
+                                  
                                 </td>
                                 <td class="table-text">
+                                 @if( $post->nameor==1)
                                     <div>{{ $post->skill }}</div>
+                                 @elseif( $post->nameor==2)
+                                    <div>{{ $post->skill }}</div>
+                                 @elseif( $post->nameor==3)
+                                 @endif
                                 </td>
                                 <td class="table-text">
+                                 @if( $post->nameor==1)
                                     <div> {{ $post->created_at->format('Y/m/d') }}</div>
+                                 @elseif( $post->nameor==2)
+                                    <div> {{ $post->created_at->format('Y/m/d') }}</div>
+                                 @elseif( $post->nameor==3)
+                                 @endif
                                 </td>  
-                                
-                                <!--<td class="table-text">-->
-                                <!--    <form action="{{ url('post/'.$post->id) }}" method="POST">-->
-                                <!--    	{{ csrf_field() }}-->
-                                <!--    	<button type="submit" class="btn btn-danger">-->
-                                <!--    	お気に入り-->
-                                <!--    	</button>-->
-                                <!--    </form>-->
-                                <!--</td>-->
-
-
                                 
                                 <!--質問詳細遷移ボタン -->
 
                                 <td>
+                                 @if( $post->nameor==1)
                                     <form action="{{ url('postsdetail/'.$post ->id) }}" method="GET">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             Detail
                                         </button>
                                     </form>
+                                 @elseif( $post->nameor==2)
+                                    <form action="{{ url('postsdetail/'.$post ->id) }}" method="GET">
+                                            {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-primary">
+                                            Detail
+                                        </button>
+                                    </form>
+                                 @elseif( $post->nameor==3)
+                                 @endif
                                 </td>
 
                                 @if(auth()->user()->id == $post->user_id)  
                                 <!--//ログインユーザーID ＝＝ $post tableのuser_idが一致している場合  -->
                                 <!--更新ボタン-->
                                 <td>
+                                @if( $post->nameor==1)
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
                                             {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             Edit
                                         </button>
                                     </form>
+                                 @elseif( $post->nameor==2)
+                                    <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-primary">
+                                            Edit
+                                        </button>
+                                    </form>
+                                 @elseif( $post->nameor==3)
+                                 @endif
                                 </td>
                 
                                 
@@ -198,7 +227,7 @@
                                 <!-- 本: 削除ボタン -->
                                 
                                 <td>
-                                
+                                @if( $post->nameor==1)
                                 <form action="{{ url('post/'.$post->id) }}" method="POST">
                                      {{ csrf_field() }}
                                      {{ method_field('delete') }}
@@ -207,10 +236,22 @@
                                         Delete
                                     </button>
                                  </form>
+                                @elseif( $post->nameor==2)
+                                 <form action="{{ url('post/'.$post->id) }}" method="POST">
+                                     {{ csrf_field() }}
+                                     {{ method_field('delete') }}
+                                    
+                                    <button type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                 </form>
+                                @elseif( $post->nameor==3)
+                                 @endif
+                                
                                 </td>
                                 @endif   
                             </tr>
-                        @endforeach
+                           @endforeach
                         @endforeach
                     </tbody>
                     

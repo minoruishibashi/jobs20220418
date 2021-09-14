@@ -55,7 +55,7 @@
                         {{ csrf_field() }}
                          <div class="col-sm-offset-3 col-sm-10">
                             <button type="submit" class="btn btn-third">
-                         Member's List
+                            Member's List
                             </button>  
                          </div>
                     </form>
