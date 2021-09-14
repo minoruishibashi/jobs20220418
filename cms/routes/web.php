@@ -95,3 +95,10 @@ Route::resource('useredit', 'UserController')->only(['index',  'update', 'destro
 
 //KENMU メンバー
 Route::get('/kenmumember','PostsController@kenmumember');
+
+
+//質問一覧検索
+Route::get('/posts/search','PostsController@search');
+
+//KENMUメンバー一覧検索
+Route::get('/kenmumember/search','PostsController@kenmumembersearch');

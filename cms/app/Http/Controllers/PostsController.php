@@ -330,5 +330,33 @@ class PostsController extends Controller
             ]);
             
         }
+
+
+    //質問一覧検索
+    public function search(Request $request)
+    {
+      #キーワード受け取り
+      $keyword = $request->input('keyword');
+     
+      $data_post = Post::where('title','like',"%$keyword%")->orWhere('contents','like',"%$keyword%")->orWhere('skill','like',"%$keyword%")->get();
+
+      $data_user = User::where('name','like',"%$keyword%")->get();
+        
+      return view('/crud',compact('data_post','data_user','keyword'));
+    }    
+    
+    //KENMUメンバー一覧検索
+     public function kenmumembersearch(Request $request)
+    {
+      #キーワード受け取り
+      $keyword = $request->input('keyword');
+     
+    //   $data_post = Post::where('title','like',"%$keyword%")->orWhere('contents','like',"%$keyword%")->orWhere('skill','like',"%$keyword%")->get();
+
+      $data_user = User::where('name','like',"%$keyword%")->orWhere('nickname','like',"%$keyword%")->orWhere('skill','like',"%$keyword%")->orWhere('profile','like',"%$keyword%")->get();
+        
+      return view('/crud_kenmumember',compact('data_user','keyword'));
+    }    
     
 }
+

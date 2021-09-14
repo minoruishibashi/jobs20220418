@@ -23,6 +23,14 @@
         </form>
         </div>
         <!--↑↑ 検索フォーム ↑↑-->
+        <form action="{{ url('kenmumember') }}" method="GET" class="form-horizontal">
+            {{ csrf_field() }}
+             <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" class="btn btn-third">
+                 KENMUメンバー一覧に戻る
+                </button>  
+             </div>
+        </form>
 
  <div class="row mt-6">
   <div class="col-md-12 col-12">
@@ -32,7 +40,6 @@
     </div>
   
            <!-- 現在の本 -->
-    @if (count($users) > 0)
         <div class="table-responsive">
             <div class="table-responsive">
                 <table class="table text-wrap mb-0">
@@ -49,29 +56,27 @@
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($data_user as $du)
                             <tr>
                                 <!-- Name-->
                                 <td class>
-                                <img src="/uploads/{{$user->img_url }}" width="100" height="100" class="rounded-circle" >
+                                <img src="/uploads/{{$du->img_url }}" width="100" height="100" class="rounded-circle" >
                                 </td>
 
                                 <!-- Name-->
                                 
                                 <td class="table-text">
-                                   <div>{{ $user->name }}</div>
+                                   <div>{{ $du->name }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $user->skill }}</div>
+                                    <div>{{ $du->skill }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $user->profile }}</div>
+                                    <div>{{ $du->profile }}</div>
                                 </td>
-                                
                                 <td class="table-text">
-                                    <div>{{ $user->nickname }}</div>
+                                    <div>{{ $du->nickname }}</div>
                                 </td>
-                            
                             </tr>
                         @endforeach
                     </tbody>
@@ -83,5 +88,4 @@
      </div>
     </div>
 
-    @endif
 @endsection
