@@ -23,16 +23,16 @@
                 @if( $posts->nameor==1)
                 <div class="yokonarabi">
                 <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
-                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->name }}">
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->name }}" readonly>
                 </div>
                 @elseif( $posts->nameor==2)
                 <div class="yokonarabi">
                 <img src="/uploads/{{$posts->user->img_url }}" width="100" height="100" class="rounded-circle">
-                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->nickname}}">
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="{{ $posts->user->nickname}}" readonly>
                 </div>
                 @elseif( $posts->nameor==3)
                 <div class="col-sm-6">            
-                <input type="text" name="nameor" class="form-control" style="width:auto" value="匿名">
+                <input type="text" name="nameor" class="form-control" style="width:auto" value="匿名" readonly>
                 </div>
                 @endif
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
         　<div class="col-sm-6">
            <label for="item_name">質問</label>
-           <input type="text" id="item_name" name="title" class="form-control" value="{{$posts->title}}">
+           <input type="text" id="item_name" name="title" class="form-control" value="{{$posts->title}}" readonly>
          </div>
         </div>
         <!--/ title -->
@@ -51,7 +51,7 @@
         <div class="form-group">
            <div class="col-sm-6">
            <label for="item_number">内容</label>
-          　<textarea id="item_number" name="contents" class="form-control" cols="40" rows="5" wrap="hard">{{$posts->contents}}</textarea>
+          　<textarea readonly id="item_number" name="contents" class="form-control" cols="40" rows="5" wrap="hard">{{$posts->contents}}</textarea>
         </div>
         <!--/ contents -->
 
@@ -59,7 +59,7 @@
         <div class="form-group">
         　<div class="col-sm-6">
            <label for="item_amount">関連スキル</label>
-        <input type="text" id="item_amount" name="skill" class="form-control" value="{{$posts->skill}}">
+        <input type="text" id="item_amount" name="skill" class="form-control" value="{{$posts->skill}}" readonly>
           </div>
         </div>
         <p></p>
@@ -77,7 +77,7 @@
             {{ csrf_field() }}
         
         <p></p>
-           <div class="col-sm-6">            
+           <div class="col-sm-6" style="color:blue">            
             コメントを投稿してみよう！
         </div>
             <div class="form-group">
@@ -138,7 +138,6 @@
                         <th>COMMENTS</th>  
                         <th>DATE</th>  
                         <th>&nbsp;</th>
-                        <th></th>
 
                     </thead>
                     <!-- テーブル本体 -->
@@ -176,29 +175,31 @@
                                 
                               @if(auth()->user()->id == $review->user_id)  
                                 <!--更新ボタン-->
+                             <div>   
                                 <td>
                                     <form action="{{ url('reviewsedit/'.$review->id) }}" method="POST">
                                             {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-secondary" style="width: 50%; margin: 5px; padding: 5px;">
                                             Edit
                                         </button>
                                     </form>
-                                </td>
+                                
                                 
                         
                                 <!-- 本: 削除ボタン -->
                                 
-                                <td>
+                                
                                 
                                 <form action="{{ url('review/'.$review->id) }}" method="POST">
                                      {{ csrf_field() }}
                                      {{ method_field('delete') }}
                                     
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" style="width: 50%; margin: 5px; padding: 5px;">
                                         Delete
                                     </button>
                                  </form>
                                 </td>
+                              </div>
                             @endif   
                                 
                             </tr>
