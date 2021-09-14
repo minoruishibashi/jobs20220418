@@ -96,8 +96,6 @@
                         <th>RELATED AREAS</th>
                         <th>DATE</th>                        
                         <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
@@ -151,42 +149,44 @@
                                 
                                 <!--質問詳細遷移ボタン -->
 
+                        <div>
                                 <td>
                                     <form action="{{ url('postsdetail/'.$post ->id) }}" method="GET">
                                             {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" style="width: 100%; margin: 5px; padding: 5px;">
                                             Detail
                                         </button>
                                     </form>
-                                </td>
+                               
 
                                 @if(auth()->user()->id == $post->user_id)  
                                 <!--//ログインユーザーID ＝＝ $post tableのuser_idが一致している場合  -->
                                 <!--更新ボタン-->
-                                <td>
+                                
                                     <form action="{{ url('postsedit/'.$post ->id) }}" method="POST">
                                             {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-secondary" style="width: 100%; margin: 5px; padding: 5px;">
                                             Edit
                                         </button>
                                     </form>
-                                </td>
+                                
                 
                                 
                                 
                                 <!-- 本: 削除ボタン -->
                                 
-                                <td>
+                                
                                 
                                 <form action="{{ url('post/'.$post->id) }}" method="POST">
                                      {{ csrf_field() }}
                                      {{ method_field('delete') }}
                                     
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" style="width: 100%; margin: 5px; padding: 5px;">
                                         Delete
                                     </button>
                                  </form>
                                 </td>
+                            </div>
                                 @endif   
                             </tr>
                         @endforeach
