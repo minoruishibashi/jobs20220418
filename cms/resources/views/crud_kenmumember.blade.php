@@ -17,7 +17,7 @@
         <div class="col-sm-4" style="padding:20px 0; padding-left:0px;">
         <form class="form-inline" action="{{url('/kenmumember/search')}}">
           <div class="form-group">
-          <input type="text" name="keyword" value="" class="form-control" placeholder="名前／ニックネーム／スキル他" >
+          <input type="text" name="keyword" value="{{$keyword}}" class="form-control" placeholder="名前／ニックネーム／スキル他" >
           </div>
           <input type="submit" value="検索" class="btn btn-info">
         </form>
