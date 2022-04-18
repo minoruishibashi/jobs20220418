@@ -27,7 +27,7 @@
             {{ csrf_field() }}
              <div class="col-sm-offset-3 col-sm-10">
                 <button type="submit" class="btn btn-third">
-                 KENMUメンバー一覧に戻る
+                 メンバー一覧に戻る
                 </button>  
              </div>
         </form>
@@ -36,7 +36,7 @@
   <div class="col-md-12 col-12">
    <div class="card">
     <div class="card-header bg-white border-bottom-0 py-4">
-          <h class="mb-0">KENMUメンバー一覧</h>
+          <h class="mb-0">メンバー一覧</h>
     </div>
   
            <!-- 現在の本 -->

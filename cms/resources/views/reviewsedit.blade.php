@@ -20,7 +20,7 @@
         <!-- title -->
         <div class="form-group">
            <div class="col-sm-6">            
-           <label for="item_name">投稿者</label>
+           <label for="item_name">登録者</label>
            <input type="text" id="item_name" name="title" class="form-control" value="{{$review->user->name}}">
            </div>        
         </div>
@@ -28,7 +28,7 @@
         <!-- title -->
         <div class="form-group">
            <div class="col-sm-6">            
-           <label for="item_number">コメント</label>
+           <label for="item_number">備忘・オフレコ</label>
            <textarea id="item_number" name="review_text" class="form-control" cols="40" rows="5" wrap="hard">{{$review->review_text}}</textarea>
            </div>
         </div>
@@ -36,19 +36,19 @@
         
         <!-- contents -->
        <div class="col-sm-6">
-       <label for="radio01" class="col-sm-6">投稿方法</label>
+       <label for="radio01" class="col-sm-6">登録方法</label>
        <div class="col-sm-6">
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
-             <label class="form-check-label" for="inlineRadio01">本名</label>
+             <label class="form-check-label" for="inlineRadio01">本人</label>
           </div>
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
-             <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+             <label class="form-check-label" for="inlineRadio02">代理</label>
           </div>
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
-             <label class="form-check-label" for="inlineRadio03">匿名</label>
+             <label class="form-check-label" for="inlineRadio03">代理２</label>
           </div>
        </div>
         <!--/ contents -->

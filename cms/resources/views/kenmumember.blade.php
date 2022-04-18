@@ -28,7 +28,7 @@
   <div class="col-md-12 col-12">
    <div class="card">
     <div class="card-header bg-white border-bottom-0 py-4">
-          <h class="mb-0">KENMUメンバー一覧</h>
+          <h class="mb-0">メンバー一覧</h>
     </div>
   
            <!-- 現在の本 -->
@@ -42,7 +42,7 @@
                         <th>Name</th>
                         <th>Skill</th>
                         <th>Profile</th>
-                        <th>Nickname</th>
+                        <th>代理権限</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>

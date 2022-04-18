@@ -20,31 +20,31 @@
             <!-- 本のタイトル -->
             <div class="form-group">
                 <div class="col-sm-6">
-                    質問
-                    <input type="text" name="title" class="form-control" placeholder="何について質問・ディスカッションしたいですか？">
+                    Job Title
+                    <input type="text" name="title" class="form-control" placeholder="登録したい職務の役位・タイトルは？">
                 </div>
                 <div class="col-sm-6">
-                    内容
-                <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" placeholder="質問背景等、具体的に記入してください"></textarea> 
+                    Mission
+                <textarea name="contents" class="form-control" cols="40" rows="5" wrap="hard" placeholder="当該職務の主なミッション、解決すべき課題を具体的に記入してください"></textarea> 
                 </div>
                 <div class="col-sm-6">
-                    関連スキル
-                    <input type="text" name="skill" class="form-control" placeholder="例:新規事業開発、海外市場、事業投資、人事 etc">
+                    Candidate
+                    <input type="text" name="skill" class="form-control" placeholder="現時点で想定される就任候補者を記載してください">
                 </div>
                 <div class="col-sm-6">
-                   <label for="radio01" class="col-sm-6">投稿方法</label>
+                   <label for="radio01" class="col-sm-6">登録方法</label>
                    <div class="col--6">
                       <div class="form-check form-check-inline">
                          <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
-                         <label class="form-check-label" for="inlineRadio01">本名</label>
+                         <label class="form-check-label" for="inlineRadio01">本人</label>
                       </div>
                       <div class="form-check form-check-inline">
                          <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
-                         <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+                         <label class="form-check-label" for="inlineRadio02">代理</label>
                       </div>
                       <div class="form-check form-check-inline">
                          <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
-                         <label class="form-check-label" for="inlineRadio03">匿名</label>
+                         <label class="form-check-label" for="inlineRadio03">代理２</label>
                       </div>
                    </div>
                 </div>
@@ -55,7 +55,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-primary">
-                        質問投稿
+                        Job登録
                     </button>
                 </div>
             </div>
@@ -79,7 +79,7 @@
   <div class="col-md-12 col-12">
    <div class="card">
     <div class="card-header bg-white border-bottom-0 py-4">
-          <h class="mb-0">質問一覧</h>
+          <h class="mb-0">Job一覧</h>
     </div>
   
            <!-- 現在の本 -->
@@ -91,9 +91,9 @@
                     <thead class="table-light">
                         <th></th>
                         <th>NAME</th>
-                        <th>QUESTION</th>
-                        <th>CONTENTS</th>
-                        <th>RELATED AREAS</th>
+                        <th>JOB TITLE</th>
+                        <th>MISSION</th>
+                        <th>CANDIDATE</th>
                         <th>DATE</th>                        
                         <th>&nbsp;</th>
                     </thead>
@@ -118,7 +118,7 @@
                                 @elseif( $post->nameor==2)
                                    <div>{{ $post->user->nickname }}</div>
                                 @elseif( $post->nameor==3)
-                                   <div>匿名</div>
+                                   <div>代理２</div>
                                 @endif
                                 </td>
                                 

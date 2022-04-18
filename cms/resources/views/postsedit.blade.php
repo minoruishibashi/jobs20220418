@@ -14,14 +14,14 @@
         <!-- 質問一覧に戻る -->
         <div class="well well-sm">
             <a class="btn btn-link pull-right" href="{{ url('/') }}">
-                質問一覧に戻る
+                Job一覧に戻る
             </a>
         </div>
 
         <!-- title -->
         <div class="form-group">
            <div class="col-sm-6">            
-           <label for="item_name">投稿者</label> 
+           <label for="item_name">登録者</label> 
            <input type="text" id="item_name" name="title" class="form-control" value="{{$post->user->name}}">
            </div>
            </div>
@@ -30,7 +30,7 @@
         <!-- title -->
         <div class="form-group">
           <div class="col-sm-6">            
-          <label for="item_name">質問</label>
+          <label for="item_name">Job Title</label>
           <input type="text" name="title" class="form-control" value="{{$post->title}}">
           </div>
         </div>
@@ -39,7 +39,7 @@
         <!-- contents -->
         <div class="form-group">
             <div class="col-sm-6">
-            <label for="item_number">内容</label>
+            <label for="item_number">Mission</label>
             <textarea id="item_number" name="contents" class="form-control" cols="40" rows="5" wrap="hard">{{$post->contents}}</textarea>
             </div>
         </div>
@@ -48,7 +48,7 @@
         <!-- skill_ -->
         <div class="form-group">
            <div class="col-sm-6">
-           <label for="item_amount">関連スキル（タグ）</label>
+           <label for="item_amount">Candidate</label>
            <input type="text" id="item_amount" name="skill" class="form-control" value="{{$post->skill}}">
            </div>
         </div>
@@ -56,19 +56,19 @@
         
         <!-- nameor -->
        <div class="col-sm-6">
-       <label for="radio01" class="col-sm-6">投稿方法</label>
+       <label for="radio01" class="col-sm-6">登録方法</label>
        <div class="col-sm-6">
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio01" name="nameor" value="1" checked="checked">
-             <label class="form-check-label" for="inlineRadio01">本名</label>
+             <label class="form-check-label" for="inlineRadio01">本人</label>
           </div>
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio02"  name="nameor" value="2" >
-             <label class="form-check-label" for="inlineRadio02">ニックネーム</label>
+             <label class="form-check-label" for="inlineRadio02">代理</label>
           </div>
           <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" id="inlineRadio03"  name="nameor" value="3" >
-             <label class="form-check-label" for="inlineRadio03">匿名</label>
+             <label class="form-check-label" for="inlineRadio03">代理２</label>
           </div>
        </div>
         <!--/ published -->
